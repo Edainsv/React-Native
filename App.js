@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
+import { React } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Data from './datas/logements.json';
+
+import Header from './src/Components/Header/Header';
+import Footer from './src/Components/Footer/Footer';
+import CardLocation from './src/Components/CardLocation/CardLocation';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <View style={styles.global}>
+            <View style={styles.app}>
+                <Header />
+
+                {Data.map((location) => (
+                    <CardLocation
+                        key={location.id}
+                        title={location.title}
+                        cover={location.cover}
+                    />
+                ))}
+            </View>
+
+            {/*<Footer />*/}
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    global: {
+        flex: 1
+    },
+    app: {
+        flex: 0.1,
+        padding: 25,
+        paddingTop: 40,
+    }
 });
