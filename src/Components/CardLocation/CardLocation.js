@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 class CardLocation extends React.Component {
 	render() {
 		return (
-			<View style={styles.cardLocation}>
+			<View style={[styles.cardLocation, styles.shadowProps]}>
 				<ImageBackground
 					source={{uri: this.props.cover}}
 					style={styles.cover}
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
 		height: 250,
 		marginTop: 10, 
 		marginBottom: 10,
-		overflow: 'hidden'
+		overflow: 'hidden',
+		boxShadow: '0 0 3px'
 	},
 	cover: {
 		flex: 1
@@ -42,6 +43,17 @@ const styles = StyleSheet.create({
 	title: {
 		color: '#fff',
 		fontSize: 18
+	},
+	shadowProps: {
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 5,
+			height: 5,
+		},
+		shadowOpacity: 1,
+		shadowRadius: 2,
+
+		elevation: 19,
 	}
 });
 
