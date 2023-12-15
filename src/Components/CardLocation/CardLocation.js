@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, ImageBackground } from 'react-native';
+import { LineaGradient } from 'expo-linear-gradient';
 
 class CardLocation extends React.Component {
 	render() {
@@ -19,7 +20,6 @@ class CardLocation extends React.Component {
 
 const styles = StyleSheet.create({
 	cardLocation: {
-		// backgroundColor: 'grey',
 		borderRadius: 10,
 		height: 250,
 		marginTop: 10, 

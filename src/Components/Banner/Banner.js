@@ -1,24 +1,42 @@
 import React from 'react';
-import {StyleSheet, View, Text } from 'react-native';
+import {View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 class Banner extends React.Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<Text style={styles.color}>Ma bannière sera ici</Text>
-			</View>
+			<ImageBackground
+				style={styles.container}
+				source={this.props.source}
+			>
+				<View style={styles.calc}>
+					<Text style={styles.title}>
+						{this.props.title}
+					</Text>
+				</View>
+			</ImageBackground>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 15
+		height: 100,
+		borderRadius: 10,
+		overflow: 'hidden',
+		flex: 1,
+		marginTop: 15,
+		marginBottom: 10
 	},
-	color: {
-		color: 'red',
+	calc: {
+		flex: 1,
+		backgroundColor: 'rgba(0, 0, 0, .45)',
+		justifyContent: 'center'
+	},
+	title: {
+		marginLeft: 15,
+		fontSize: 20,
+		color: '#fff',
 		position: 'absolute',
-		zndex: 40
 	}
 });
 
