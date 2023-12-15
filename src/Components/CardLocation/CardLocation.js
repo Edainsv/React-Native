@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, ImageBackground } from 'react-native';
-import { LineaGradient } from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
 class CardLocation extends React.Component {
 	render() {
@@ -10,8 +10,12 @@ class CardLocation extends React.Component {
 					source={{uri: this.props.cover}}
 					style={styles.cover}
 				>
-					<Text>{this.props.title}</Text>
-
+					<LinearGradient
+						colors={['transparent', 'rgba(0,0,0,0.8)']}
+						style={styles.linear}
+					>
+						<Text style={styles.title}>{this.props.title}</Text>
+					</LinearGradient>
 				</ImageBackground>
 			</View>
 		);
@@ -28,6 +32,16 @@ const styles = StyleSheet.create({
 	},
 	cover: {
 		flex: 1
+	},
+	linear: {
+		flex: 1,
+		justifyContent: 'flex-end',
+		padding: 20,
+		paddingRight: '20%',
+	},
+	title: {
+		color: '#fff',
+		fontSize: 18
 	}
 });
 
